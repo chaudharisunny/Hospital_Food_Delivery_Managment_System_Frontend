@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import API from '../../API';
+import API from '../API';
+
+
 
 const AllAdmin = () => {
   const [users, setUsers] = useState([]);
