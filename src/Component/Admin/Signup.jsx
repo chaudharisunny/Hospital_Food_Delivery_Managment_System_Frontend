@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import API from '../../api'
+import API from '../../API';
+
 
 const Signup = () => {
   const [form, setForm] = useState({
