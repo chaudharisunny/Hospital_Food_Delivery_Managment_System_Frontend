@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import API from '../API';
-
+import axios from 'axios';
 
 const Signup = () => {
   const [form, setForm] = useState({
@@ -21,7 +20,7 @@ const Signup = () => {
   useEffect(() => {
     const fetchSpecializations = async () => {
       try {
-        const res = await API.get('/api/v1/specializations');
+        const res = await axios.get('http://localhost:3050/api/v1/specializations');
         setSpecializations(res.data.message || []);
         console.log(res.data.message)
       } catch (error) {
@@ -61,8 +60,8 @@ const Signup = () => {
         delete payload.specialization;
       }
 
-      await API.post(
-        '/api/v1/adminSignup',
+      await axios.post(
+        'http://localhost:3050/api/v1/adminSignup',
         payload,
         {
           headers: {
