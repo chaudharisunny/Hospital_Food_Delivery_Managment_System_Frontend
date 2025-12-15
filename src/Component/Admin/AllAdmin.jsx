@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import API from '../../API';
-
-
+import axios from 'axios';
 
 const AllAdmin = () => {
   const [users, setUsers] = useState([]);
@@ -12,7 +10,7 @@ const AllAdmin = () => {
     const fetchAdmins = async () => {
       try {
         const token = localStorage.getItem('token'); // Make sure token is stored
-        const res = await API.get('/api/v1/allAdmin', {
+        const res = await axios.get('http://localhost:3050/api/v1/allAdmin', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
