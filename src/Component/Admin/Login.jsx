@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import API from '../../api'
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:3050/api/v1/adminLogin', {
+      const res = await API.post('/api/v1/adminLogin', {
         email,
         password
       });
